@@ -3,13 +3,18 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 import reportWebVitals from './reportWebVitals'
 import Home from './pages/home'
+import { ApolloProvider } from "@apollo/client"
+import { client } from './network/apollo-client'
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 )
+
 root.render(
   <React.StrictMode>
-    <Home />
+    <ApolloProvider client={client}>
+      <Home />
+    </ApolloProvider>
   </React.StrictMode>
 )
 
